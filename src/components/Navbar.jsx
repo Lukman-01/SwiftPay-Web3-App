@@ -1,6 +1,7 @@
 import React from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
+import { SiFampay } from "react-icons/si";
 
 import logo from "../images/logo.png";
 
@@ -13,8 +14,11 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      <div className="md:flex-[0.5] flex-initial justify-center items-center">
-        <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+      <div className="flex md:flex-[0.5] flex-initial justify-center items-center">
+        <SiFampay fontSize={70} className="text-blue-600" />
+        <p className="text-5xl italic text-green-600">
+          Swift<span className="text-7xl">Pay</span>
+        </p>
       </div>
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
         {["Market", "Exchange", "News Feeds", "Wallets"].map((item, index) => (
