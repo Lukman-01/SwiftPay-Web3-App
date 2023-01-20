@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-//create a component using React and TailwindCss, that includes a heading, a table with columns "Name", "Address", "Amount" and "Message",
-//an editable button at the end of each row, an 'Add' button on top of the table, a form that appears
-//when the 'Add' button is clicked. The form contains input fields for "Name", "Address", "Amount" and "Message" and
-//when the form is submitted, it will add the form data to the table list, when the edit button of any row is clicked,
-//that particular row data should be  editable, add a delete icon beside the edit button for every row, when the delete
-//icon of any  row is clicked, that particular row should be deleted, use tailwind css, to make the component beautiful:
 
 const MultiSendTable = () => {
   const [tableData, setTableData] = useState([
