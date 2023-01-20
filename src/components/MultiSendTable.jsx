@@ -6,7 +6,7 @@ import React, { useState } from "react";
 //that particular row data should be  editable, add a delete icon beside the edit button for every row, when the delete
 //icon of any  row is clicked, that particular row should be deleted, use tailwind css, to make the component beautiful:
 
-const TestTable = () => {
+const MultiSendTable = () => {
   const [tableData, setTableData] = useState([
     {
       name: "",
@@ -47,7 +47,7 @@ const TestTable = () => {
   return (
     <div className="m-auto w-[60%] justify-center content-center">
       <div className="pb-10px">
-        <h1 className="text-center text-white text-4xl italic justify-center font-bold font-mono">
+        <h1 className="text-center text-white text-4xl justify-center font-bold font-mono">
           Send To Multiple Accounts
         </h1>
       </div>
@@ -142,4 +142,4 @@ const TestTable = () => {
   );
 };
 
-export default TestTable;
+export default MultiSendTable;

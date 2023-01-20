@@ -1,11 +1,11 @@
-import { Navbar, Welcome, Footer, Transactions, TestTable } from "./components";
+import { Navbar, Welcome, Footer, Transactions, MultiSendTable } from "./components";
 
 const App = () => (
   <div className="min-h-screen">
     <div className="bg-slate-800">
       <Navbar />
       <Welcome />
-      <TestTable />
+      <MultiSendTable />
     </div>
     <Transactions />
     <Footer />
