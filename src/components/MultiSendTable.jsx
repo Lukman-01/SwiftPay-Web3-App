@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 
 const MultiSendTable = () => {
-  const [tableData, setTableData] = useState([
-    {
-      name: "",
-      address: "",
-      amount: "",
-      message: "",
-    },
-  ]);
+  const [tableData, setTableData] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -37,7 +30,7 @@ const MultiSendTable = () => {
     newData.splice(index, 1);
     setTableData(newData);
   };
-
+  console.log(tableData);
   return (
     <div className="m-auto w-[60%] justify-center content-center">
       <div className="pb-10px">
