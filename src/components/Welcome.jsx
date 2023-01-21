@@ -5,7 +5,7 @@ import { BsInfoCircle } from "react-icons/bs";
 
 import { Loader } from "./";
 
-const companyCommonStyles =
+const propertyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
@@ -44,18 +44,18 @@ const Welcome = () => {
           </button>
 
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
+            <div className={`rounded-tl-2xl ${propertyCommonStyles}`}>
               Reliable
             </div>
-            <div className={companyCommonStyles}>Secure</div>
-            <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>
+            <div className={propertyCommonStyles}>Secure</div>
+            <div className={`sm:rounded-tr-2xl ${propertyCommonStyles}`}>
               Easy Use
             </div>
-            <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
-              fast
+            <div className={`sm:rounded-bl-2xl ${propertyCommonStyles}`}>
+              Fast
             </div>
-            <div className={companyCommonStyles}>Low Fees</div>
-            <div className={`rounded-br-2xl ${companyCommonStyles}`}>
+            <div className={propertyCommonStyles}>Low Fees</div>
+            <div className={`rounded-br-2xl ${propertyCommonStyles}`}>
               Blockchain
             </div>
           </div>
@@ -78,8 +78,9 @@ const Welcome = () => {
               </div>
             </div>
           </div>
-          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center border-1 rounded-lg">
+          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center border-1 rounded-lg bg-slate-800 text-white">
             <Input
+              className="bg-slate-800 text-white"
               placeholder="Address To"
               name="addressTo"
               type="text"

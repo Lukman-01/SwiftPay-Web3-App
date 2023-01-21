@@ -57,7 +57,7 @@ const MultiSendTable = () => {
         {showForm && (
           <form onSubmit={handleSubmit}>
             <input
-              className="border p-2 mr-2 rounded-lg"
+              className="border p-2 mr-2 rounded-full"
               type="text"
               name="name"
               placeholder="Name"
@@ -65,7 +65,7 @@ const MultiSendTable = () => {
               onChange={handleChange}
             />
             <input
-              className="border p-2 mr-2 rounded-lg"
+              className="border p-2 mr-2 rounded-full"
               type="text"
               name="address"
               placeholder="Address"
@@ -73,15 +73,15 @@ const MultiSendTable = () => {
               onChange={handleChange}
             />
             <input
-              className="border p-2 mr-2 rounded-lg"
+              className="border p-2 mr-2 rounded-full"
               type="text"
               name="amount"
-              placeholder="Amount"
+              placeholder="Amount in (ETH)"
               value={formData.amount}
               onChange={handleChange}
             />
             <input
-              className="border p-2 mr-2 rounded-lg"
+              className="border p-2 mr-2 rounded-full"
               type="text"
               name="message"
               placeholder="Message"
@@ -90,7 +90,7 @@ const MultiSendTable = () => {
             />
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded-lg mr-2"
+              className="bg-blue-500 text-white py-2 px-2 rounded-full "
             >
               Submit
             </button>
