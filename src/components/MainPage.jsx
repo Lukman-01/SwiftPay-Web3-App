@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
+import { TransactionContext } from "../context/TransactionContext";
 
-import { Loader } from "./";
+import { shortenAddress } from "../utils/shortenAddress";
+import { Loader } from ".";
 
 const propertyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white";
@@ -15,14 +17,29 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
     step="0.0001"
     value={value}
     onChange={(e) => handleChange(e, name)}
-    className="my-2 w-full rounded-full p-2 outline-none text-white border-1px text-sm "
+    className="my-2 w-full rounded-full p-2 outline-none border-1px text-sm "
   />
 );
 
-const Welcome = () => {
-  const connectWallet = () => {};
+const MainPage = () => {
+  const {
+    currentAccount,
+    connectWallet,
+    handleChange,
+    sendTransaction,
+    formData,
+    isLoading,
+  } = useContext(TransactionContext);
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    e.preventDefault();
+
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
+  };
 
   return (
     <div className="flex w-full justify-center items-center">
@@ -34,14 +51,18 @@ const Welcome = () => {
           <p className="text-center mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
             Easy, Secure and Reliable payment of goods and services.
           </p>
-          <button
-            type="button"
-            onClick={connectWallet}
-            className="w-full flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-          >
-            <AiFillPlayCircle className="text-white mr-2" />
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
-          </button>
+          {!currentAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className="w-full flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            >
+              <AiFillPlayCircle className="text-white mr-2" />
+              <p className="text-white text-base font-semibold">
+                Connect Wallet
+              </p>
+            </button>
+          )}
 
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${propertyCommonStyles}`}>
@@ -71,43 +92,47 @@ const Welcome = () => {
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
               <div>
-                <p className="text-white font-light text-sm">Address</p>
+                <p className="text-white font-light text-sm">
+                  {shortenAddress(currentAccount)}
+                </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
                 </p>
               </div>
             </div>
           </div>
-          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center border-1 rounded-lg bg-slate-800 text-white">
+          <div
+            id="tblack"
+            className="p-5 sm:w-96 w-full flex flex-col justify-start items-center border-1 rounded-lg text-black"
+          >
             <Input
-              className="bg-slate-800 text-white"
               placeholder="Address To"
               name="addressTo"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Amount (ETH)"
               name="amount"
               type="number"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Keyword "
               name="keyword"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Enter Message"
               name="message"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
 
             <div className="h-[1px] w-full bg-white my-2" />
 
-            {false ? (
+            {isLoading ? (
               <Loader />
             ) : (
               <button
@@ -125,4 +150,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default MainPage;

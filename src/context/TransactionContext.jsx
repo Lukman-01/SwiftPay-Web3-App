@@ -3,13 +3,17 @@ import { ethers } from "ethers";
 
 import { contractABI, contractAddress } from "../utils/constants";
 
+//This allow to use react context api
 export const TransactionContext = React.createContext();
 
+//destructuring ethereum from window object
 const { ethereum } = window;
 
+//the function below fetch ethereum contract from the smart contract
 const createEthereumContract = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
+  //use to fetch transaction contract from the smart contract
   const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
 
   return transactionsContract;

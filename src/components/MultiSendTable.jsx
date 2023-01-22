@@ -34,7 +34,7 @@ const MultiSendTable = () => {
   return (
     <div className="m-auto w-[60%] justify-center content-center">
       <div className="pb-10px">
-        <h1 className="text-center text-white text-4xl justify-center font-bold font-mono">
+        <h1 className="text-center text-white text-5xl justify-center font-bold font-mono">
           Send To Multiple Accounts
         </h1>
       </div>
