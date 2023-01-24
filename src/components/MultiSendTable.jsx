@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MultiSendContext } from "../context/MultiSendContext";
 
 const MultiSendTable = () => {
   const [tableData, setTableData] = useState([]);
@@ -38,6 +39,17 @@ const MultiSendTable = () => {
           Send To Multiple Accounts
         </h1>
       </div>
+      {!currentAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className="w-full flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            >
+              <p className="text-white text-base font-semibold">
+                Connect Wallet
+              </p>
+            </button>
+          )}
       <div className="pb-5px justify-end content-end">
         <button
           className="bg-blue-500 text-white py-2 px-4 rounded-lg mb-4 ml-2 "
@@ -119,7 +131,8 @@ const MultiSendTable = () => {
             </tbody>
           </table>
           <div className="m-auto w-[60%] justify-center content-center my-10">
-            <button className="m-auto w-[60%] flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]">
+            <button className="m-auto w-[60%] flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            onClick={() => {}}>
               Send Ether
             </button>
           </div>
