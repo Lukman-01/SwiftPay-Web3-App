@@ -21,12 +21,6 @@ const Footer = () => (
           Hedera
         </p>
         <p className="text-white text-base text-center mx-2 cursor-pointer">
-          Trons
-        </p>
-        <p className="text-white text-base text-center mx-2 cursor-pointer">
-          Smart contracts
-        </p>
-        <p className="text-white text-base text-center mx-2 cursor-pointer">
           Solana
         </p>
         <p className="text-white text-base text-center mx-2 cursor-pointer">
@@ -46,13 +40,6 @@ const Footer = () => (
       <p className="text-white text-sm text-center font-medium mt-2">
         info@swiftpay.com
       </p>
-    </div>
-
-    <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 " />
-
-    <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
-      <p className="text-white text-left text-xs">@SwiftPay2022</p>
-      <p className="text-white text-right text-xs">All rights reserved</p>
     </div>
   </div>
 );

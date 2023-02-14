@@ -19,12 +19,9 @@ const Navbar = () => {
         </p>
       </div>
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {["Market", "Exchange", "News Feeds", "Wallets"].map((item, index) => (
+        {["MarketAnalysis", "Tradding", "News Feeds", "Wallets"].map((item, index) => (
           <NavBarItem key={item + index} title={item} />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
-          Login
-        </li>
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
@@ -49,7 +46,7 @@ const Navbar = () => {
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {["Market", "Exchange", "Tutorials", "Wallets"].map(
+            {["MarketAnalysis", "Tradding", "NewsFeed", "Wallets"].map(
               (item, index) => (
                 <NavBarItem
                   key={item + index}

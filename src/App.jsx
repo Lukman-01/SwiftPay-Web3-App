@@ -1,10 +1,14 @@
-import { Navbar, Footer, MainPage, } from "./components";
+import Navbar from "./components/Navbar";
+import MainPage from "./components/MainPage";
+import MultiSendTable from "./components/MultiSendTable";
+import Footer from "./components/Footer";
 
 const App = () => (
-  <div className="min-h-screen">
+  <div>
     <div className="bg-slate-800">
       <Navbar />
       <MainPage />
+      <MultiSendTable />
       <Footer />
     </div>
   </div>

@@ -65,9 +65,36 @@ const MultiSendTable = () => {
           currentAccount = accounts[0];
         }
 
-        for (let i = 0; i < tableData.length; i++) {
-          const addr = tableData[i].address;
-          const amt = tableData[i].amount;
+        // for (let i = 0; i < tableData.length; i++) {
+        //   const addr = tableData[i].address;
+        //   const amt = tableData[i].amount;
+        //   console.log(addr, amt);
+        //   const parsedAmount = ethers.utils.parseEther(amt);
+        //   await ethereum.request({
+        //     method: "eth_sendTransaction",
+        //     params: [
+        //       {
+        //         from: currentAccount,
+        //         to: addr,
+        //         gas: "0x5208",
+        //         value: parsedAmount._hex,
+        //       },
+        //     ],
+        //   });
+
+        //   const transactionHash = await transactionsContract.addToBlockchain(
+        //     addr,
+        //     parsedAmount,
+        //     "gdshvay",
+        //     "ksndksndknsd"
+        //   );
+        //   await transactionHash.wait();
+        //   console.log(`Success - ${transactionHash.hash}`);
+        // }
+
+        for (const data of tableData) {
+          const addr = data.address;
+          const amt = data.amount;
           console.log(addr, amt);
           const parsedAmount = ethers.utils.parseEther(amt);
           await ethereum.request({
@@ -81,7 +108,7 @@ const MultiSendTable = () => {
               },
             ],
           });
-
+        
           const transactionHash = await transactionsContract.addToBlockchain(
             addr,
             parsedAmount,
@@ -91,6 +118,7 @@ const MultiSendTable = () => {
           await transactionHash.wait();
           console.log(`Success - ${transactionHash.hash}`);
         }
+        
         // tableData.map((data) => {
         //   addrs.push(data.address);
         //   amnts.push(ethers.utils.parseEther(data.amount));

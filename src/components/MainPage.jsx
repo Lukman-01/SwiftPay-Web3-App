@@ -5,7 +5,6 @@ import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../context/TransactionContext";
 
 import { shortenAddress } from "../utils/shortenAddress";
-import { Loader } from ".";
 
 const propertyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white";
@@ -43,7 +42,7 @@ const MainPage = () => {
 
   return (
     <div className="flex w-full justify-center items-center">
-      <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+      <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-10">
         <div className="flex flex-1 justify-start items-start flex-col md:mr-10">
           <h1 className="text-6xl sm:text-7xl text-white  py-1 justify-center">
             SwiftPay
@@ -131,10 +130,6 @@ const MainPage = () => {
             />
 
             <div className="h-[1px] w-full bg-white my-2" />
-
-            {isLoading ? (
-              <Loader />
-            ) : (
               <button
                 type="button"
                 onClick={handleSubmit}
@@ -142,7 +137,6 @@ const MainPage = () => {
               >
                 Send now
               </button>
-            )}
           </div>
         </div>
       </div>

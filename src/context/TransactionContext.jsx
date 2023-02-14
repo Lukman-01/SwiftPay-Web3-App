@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
+// we import the smart contract ABI and the contract address from our smart contract
 import { contractABI, contractAddress } from "../utils/constants";
 
 
@@ -24,7 +25,6 @@ const createEthereumContract = () => {
 export const TransactionsProvider = ({ children }) => {
   const [formData, setformData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
   const [currentAccount, setCurrentAccount] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
 
   const handleChange = (e, name) => {
@@ -81,11 +81,9 @@ export const TransactionsProvider = ({ children }) => {
 
         const transactionHash = await transactionsContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
 
-        setIsLoading(true);
         console.log(`Loading - ${transactionHash.hash}`);
         await transactionHash.wait();
         console.log(`Success - ${transactionHash.hash}`);
-        setIsLoading(false);
 
       } else {
         console.log("No ethereum object");
@@ -104,7 +102,6 @@ export const TransactionsProvider = ({ children }) => {
       value={{
         connectWallet,
         currentAccount,
-        isLoading,
         sendTransaction,
         handleChange,
         formData,
