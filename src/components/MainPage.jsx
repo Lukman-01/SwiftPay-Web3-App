@@ -4,11 +4,9 @@ import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../context/TransactionContext";
 
-import { shortenAddress } from "../utils/shortenAddress";
+const shortenAddress = (address) => `${address.slice(0, 5)}...${address.slice(address.length - 4)}`;
 
-const propertyCommonStyles =
-  "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white";
-
+ 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
     placeholder={placeholder}
@@ -27,7 +25,6 @@ const MainPage = () => {
     handleChange,
     sendTransaction,
     formData,
-    isLoading,
   } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
@@ -64,18 +61,18 @@ const MainPage = () => {
           )}
 
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${propertyCommonStyles}`}>
+            <div className="rounded-tl-2xl min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white">
               Reliable
             </div>
-            <div className={propertyCommonStyles}>Secure</div>
-            <div className={`sm:rounded-tr-2xl ${propertyCommonStyles}`}>
+            <div className="min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white">Secure</div>
+            <div className="sm:rounded-tr-2xl min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white">
               Easy Use
             </div>
-            <div className={`sm:rounded-bl-2xl ${propertyCommonStyles}`}>
+            <div className="sm:rounded-bl-2xl min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white">
               Fast
             </div>
-            <div className={propertyCommonStyles}>Low Fees</div>
-            <div className={`rounded-br-2xl ${propertyCommonStyles}`}>
+            <div className="min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white">Low Fees</div>
+            <div className="rounded-br-2xl min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[1px] border-gray-400 text-lg font-light text-white">
               Blockchain
             </div>
           </div>
