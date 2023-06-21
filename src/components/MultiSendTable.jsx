@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import { ethers } from "ethers";
-// import {
-//   contractMultiSendABI,
-//   contractMultiSendAddress,
-// } from "../utils/constantsMultiSend";
 import { contractABI, contractAddress } from "../utils/constants";
 
 const { ethereum } = window;
@@ -65,36 +61,11 @@ const MultiSendTable = () => {
           currentAccount = accounts[0];
         }
 
-        // for (let i = 0; i < tableData.length; i++) {
-        //   const addr = tableData[i].address;
-        //   const amt = tableData[i].amount;
-        //   console.log(addr, amt);
-        //   const parsedAmount = ethers.utils.parseEther(amt);
-        //   await ethereum.request({
-        //     method: "eth_sendTransaction",
-        //     params: [
-        //       {
-        //         from: currentAccount,
-        //         to: addr,
-        //         gas: "0x5208",
-        //         value: parsedAmount._hex,
-        //       },
-        //     ],
-        //   });
-
-        //   const transactionHash = await transactionsContract.addToBlockchain(
-        //     addr,
-        //     parsedAmount,
-        //     "gdshvay",
-        //     "ksndksndknsd"
-        //   );
-        //   await transactionHash.wait();
-        //   console.log(`Success - ${transactionHash.hash}`);
-        // }
-
         for (const data of tableData) {
+          const nam = data.name;
           const addr = data.address;
           const amt = data.amount;
+          const msg = data.message;
           console.log(addr, amt);
           const parsedAmount = ethers.utils.parseEther(amt);
           await ethereum.request({
@@ -109,47 +80,15 @@ const MultiSendTable = () => {
             ],
           });
         
-          const transactionHash = await transactionsContract.addToBlockchain(
+          const transactionHash = await transactionsContract.addToBlockChain(
             addr,
             parsedAmount,
-            "gdshvay",
-            "ksndksndknsd"
+            msg,
+            nam
           );
           await transactionHash.wait();
           console.log(`Success - ${transactionHash.hash}`);
         }
-        
-        // tableData.map((data) => {
-        //   addrs.push(data.address);
-        //   amnts.push(ethers.utils.parseEther(data.amount));
-        // });
-        // let tx = await multiSendsContract.withdrawls(addrs, amnts, {
-        //   gasLimit: 50000,
-        //   gasPrice: 20000000000,
-        // });
-
-        // let signedTx = await multiSendsContract.signer.sign(tx);
-        // let txHash = await multiSendsContract.provider.sendTransaction(signedTx);
-        // console.log(txHash);
-
-        // (async function() {
-        //   const senderAddress = signer.address;
-
-        //     // check if the caller is the owner of the contract
-        //     const owner = await multiSendsContract.getOwner();
-        //     if (owner !== senderAddress) {
-        //         console.log('Caller is not the owner of the contract');
-        //         return;
-        //     }
-
-        //     // send the transaction to call the withdrawls function
-        //     const tx = await multiSendsContract.withdrawls(addrs, amnts);
-        //     console.log('Transaction hash: ', tx.hash);
-
-        //     // wait for the transaction to be mined
-        //     await tx.wait();
-        //     console.log('Transaction mined');
-        // })();
       }
     } catch (error) {
       console.log(error);
