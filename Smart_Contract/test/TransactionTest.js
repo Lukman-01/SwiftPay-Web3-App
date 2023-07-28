@@ -37,15 +37,15 @@ describe('Transactions Contract', function () {
 
   it('should emit a Transfer event when adding a transaction', async function () {
     const tx = await transactionsContract.addToBlockChain(receiver.address, amount, message, keyword);
-
+  
     // Ensure the event is emitted with the correct data
     expect(tx).to.emit(transactionsContract, 'Transfer').withArgs(
       owner.address,
       receiver.address,
       amount,
       message,
-      ethers.BigNumber.from(tx.timestamp),
+      tx.blockTimestamp, // Accessing block timestamp directly from the transaction receipt
       keyword
     );
-  });
+  });  
 });
