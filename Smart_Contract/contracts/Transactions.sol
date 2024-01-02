@@ -1,10 +1,4 @@
-/**
- * @title Transactions
- * @dev A smart contract for managing transactions on the blockchain.
- */
- 
-// SPDX-License-Identifier: UNLICENSED
- 
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract Transactions {
