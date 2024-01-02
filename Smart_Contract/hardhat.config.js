@@ -1,13 +1,18 @@
-//https://eth-goerli.g.alchemy.com/v2/PtOW84EIMyfAaX93sYECGs_QLonqicN8
-
 require('@nomiclabs/hardhat-waffle');
+require("dotenv").config({ path: ".env" });
+
+const ALCHEMY_HTTP_URL = process.env.ALCHEMY_HTTP_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+
 
 module.exports = {
-  solidity: '0.8.0',
+  solidity: "0.8.0",
   networks: {
-    goerli: {
-      url: 'https://eth-goerli.g.alchemy.com/v2/PtOW84EIMyfAaX93sYECGs_QLonqicN8',
-      accounts: ['8431b27ab2ba78ecc97181e3baf0defe507b490a78ecbb7b25f0e4621278d66f'],
+    sepolia: {
+      url: ALCHEMY_HTTP_URL,
+      accounts: [PRIVATE_KEY],
     },
   },
 };
+
+//Transactions are deployed to  0x3FC045c4D6B65371596B4cb3E028C0507C9BE2EC
